@@ -18,6 +18,7 @@ public class BeatDetector : MonoBehaviour
         //to adjust the sensitivity
         void onOnbeatDetected()
         {
+           // transform.Rotate(0f, 0f, 120f);
             Debug.Log("Beat!!!");
         }
 
