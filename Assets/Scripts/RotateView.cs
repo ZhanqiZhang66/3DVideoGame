@@ -43,7 +43,7 @@ public class RotateView : MonoBehaviour
 
         // Get Input
         //if (Input.GetKeyDown(KeyCode.Space))
-        if (isBeat)
+        if (isBeat || Input.GetKeyDown(KeyCode.Space))
         {
             // Rotate our platform 
             transform.Rotate(0f, 0f, 120f);
