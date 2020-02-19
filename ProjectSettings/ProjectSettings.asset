@@ -626,6 +626,7 @@ PlayerSettings:
       daydreamIconForeground: {fileID: 0}
       daydreamIconBackground: {fileID: 0}
   cloudServicesEnabled:
+    Collab: 1
     UNet: 1
   luminIcon:
     m_Name: 
@@ -646,10 +647,10 @@ PlayerSettings:
   facebookXfbml: 0
   facebookFrictionlessRequests: 1
   apiCompatibilityLevel: 6
-  cloudProjectId: 
+  cloudProjectId: 6b6a21bf-ba7c-4aa4-a05f-7a10df468346
   framebufferDepthMemorylessMode: 0
-  projectName: 
-  organizationId: 
+  projectName: TeamShellish
+  organizationId: shellish
   cloudEnabled: 0
   enableNativePlatformBackendsForNewInputSystem: 0
   disableOldInputManagerSupport: 0
