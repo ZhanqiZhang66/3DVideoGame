@@ -19,7 +19,7 @@ public class BeatDetector : MonoBehaviour
         void onOnbeatDetected()
         {
            // transform.Rotate(0f, 0f, 120f);
-            Debug.Log("Beat!!!");
+           // Debug.Log("Beat!!!");
         }
 
         //This event will be called every frame while music is playing

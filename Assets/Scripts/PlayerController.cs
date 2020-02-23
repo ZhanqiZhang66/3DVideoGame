@@ -4,17 +4,14 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    // Outlets
-    Rigidbody rb;
 
-    // Configuration
-    public float speed;
+    public float score;
 
 
     // Start is called before the first frame update
     void Start()
     {
-        rb = GetComponent<Rigidbody>();
+
     }
 
 
@@ -22,8 +19,6 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
 
-        // Go forward
-        transform.position = Vector3.forward * speed;
 
     }
 }
