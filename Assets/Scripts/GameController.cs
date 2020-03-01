@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour
 {
@@ -10,7 +11,10 @@ public class GameController : MonoBehaviour
     public GameObject coin;
     public GameObject ParentGameObject;
 
-    
+
+
+
+
     private void Awake()
     {
         instance = this;
@@ -20,13 +24,17 @@ public class GameController : MonoBehaviour
     {
         AudioProcessor processor = FindObjectOfType<AudioProcessor>();
         processor.onBeat.AddListener(onOnbeatDetected);
+
     }
 
     void onOnbeatDetected()
     {
         // transform.Rotate(0f, 0f, 120f);
         // Debug.Log("Beat!!!");
-        SpawnCoin();
+        if (SceneManager.GetActiveScene().name != "Try")
+        {
+            SpawnCoin();
+        }
     }
 
     void SpawnCoin()
@@ -36,6 +44,7 @@ public class GameController : MonoBehaviour
         GameObject Coin = Instantiate(coin, randomSpawnPoint.position, Quaternion.identity);
 
         Coin.transform.parent = ParentGameObject.transform;
+    
         
     }
 }

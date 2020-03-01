@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using UnityEngine.SceneManagement;
 
 public class RotateView : MonoBehaviour
 {
@@ -20,7 +21,12 @@ public class RotateView : MonoBehaviour
         }
 
         //rb.AddForce(movement * speed);
-        transform.Translate(movement * Time.deltaTime);
+
+        if(SceneManager.GetActiveScene().name != "Try")
+        {
+            transform.Translate(movement * Time.deltaTime);
+        }
+        
 
 
     }
