@@ -14,6 +14,7 @@ public class RotateView : MonoBehaviour
         Vector3 movement = new Vector3(0, 0, speed);
 
 
+
         // Rotate our platform on user's command
         if (Input.GetKeyDown(KeyCode.Space))
         {
@@ -26,9 +27,8 @@ public class RotateView : MonoBehaviour
         {
             transform.Translate(movement * Time.deltaTime);
         }
-        
 
-
+        transform.Translate(movement * Time.deltaTime);
     }
 
 

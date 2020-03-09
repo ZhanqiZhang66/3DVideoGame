@@ -26,9 +26,9 @@ public class Coin : MonoBehaviour
 
         if (SceneManager.GetActiveScene().name == "Try")
         {
-            Vector3 movement = new Vector3(0, 0, speed);
+            //Vector3 movement = new Vector3(0, 0, speed);
 
-            transform.Translate(movement * Time.deltaTime);
+            //transform.Translate(movement * Time.deltaTime);
         }
     }
 }
