@@ -1,10 +1,11 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class NotesObjects : MonoBehaviour
 {
     public bool canBePressed;
+    public GameObject perfect;
     // Start is called before the first frame update
     void Start()
     {
