@@ -33,13 +33,14 @@ public class Canvas : MonoBehaviour {
 	}
 	
 	public void Restart(){
-		bgm.Stop();
-		SceneManager.LoadScene ("Try");
-		pause_panel.SetActive (false);
-		game_panel.SetActive (true);
+		Time.timeScale = 1;
+		SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+		//pause_panel.SetActive (false);
+		//game_panel.SetActive (true);
 	}
 	
 	public void MainMenu(){
+
 		SceneManager.LoadScene ("start menu");
 	}
 	
