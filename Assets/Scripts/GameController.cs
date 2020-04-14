@@ -50,6 +50,7 @@ public class GameController : MonoBehaviour
     {
         comboCount++;
 
+
         if(comboCount < 20)
         {
             multiplier = 1;

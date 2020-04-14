@@ -14,13 +14,14 @@ public class NotesObjects : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKey(KeyCode.Space))
         {
             if (canBePressed)
             {
                 Destroy(gameObject);
+                GameController.instance.NormalHit();
 
-                if(transform.position.z >= -33.43)
+/*                if (transform.position.z >= -33.43)
                 {
                     print("bad");
                     GameController.instance.BadHit();
@@ -36,7 +37,7 @@ public class NotesObjects : MonoBehaviour
                 {
                     print("perfect");
                     GameController.instance.PerfectHit();
-                }
+                }*/
                 
             }
         }
@@ -53,10 +54,12 @@ public class NotesObjects : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
+        //print("trigger exit");
         if (other.tag == "Player")
         {
             canBePressed = false;
         }
+        GameController.instance.NoteMissed();
     }
 
     private void OnBecameInvisible()
