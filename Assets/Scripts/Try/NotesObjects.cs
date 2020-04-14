@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class NotesObjects : MonoBehaviour
 {
+    public bool canBePressed;
     // Start is called before the first frame update
     void Start()
     {
@@ -13,17 +14,48 @@ public class NotesObjects : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
-    }
-    
-
-    private void OnTriggerStay(Collider collision)
-    {
-        PlayerController player = collision.gameObject.GetComponent<PlayerController>();
-        if (player != null)
+        if (Input.GetKeyDown(KeyCode.Space))
         {
-            player.score++;
-            Destroy(gameObject);
+            if (canBePressed)
+            {
+                Destroy(gameObject);
+
+                if(transform.position.z >= -33.43)
+                {
+                    print("bad");
+                    GameController.instance.BadHit();
+                }else if(transform.position.z >= -33.8)
+                {
+                    print("normal");
+                    GameController.instance.NormalHit();
+                }else if(transform.position.z >= -34.08)
+                {
+                    print("good");
+                    GameController.instance.GoodHit();
+                }else if(transform.position.z >= -34.27)
+                {
+                    print("perfect");
+                    GameController.instance.PerfectHit();
+                }
+                
+            }
+        }
+    }
+
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "Player")
+        {
+            canBePressed = true;
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.tag == "Player")
+        {
+            canBePressed = false;
         }
     }
 

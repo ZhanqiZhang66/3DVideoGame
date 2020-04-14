@@ -9,6 +9,7 @@ public class PlayerController : MonoBehaviour
     public Transform[] positions; //left, right ,mid 3 position points
     int currentPos = 1;
     public float speed; //9.2
+ 
 
     // Start is called before the first frame update
     void Start()
@@ -34,8 +35,11 @@ public class PlayerController : MonoBehaviour
             if (currentPos != 0) currentPos--;
         }
 
+
         //transform the game object to the desired location
         transform.position = Vector3.MoveTowards(transform.position, positions[currentPos].position, speed * Time.deltaTime);
 
     }
+
+
 }

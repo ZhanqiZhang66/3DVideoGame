@@ -7,12 +7,18 @@ public class GameController : MonoBehaviour
 {
     public static GameController instance;
 
-    public Transform[] spawnPoints;
-    public GameObject coin;
-    public GameObject ParentGameObject;
+    public AudioSource faded;
+    public bool startMusic;
 
+    public Notes notes;
 
-
+    public int comboCount = 0;
+    public int maxCombo = 0;
+    public int currentScore = 0;
+    public int scoreNormalNote = 100;
+    public int scoreGoodNote = 120;
+    public int scorePerfectNote = 150;
+    public int multiplier = 1;
 
 
     private void Awake()
@@ -22,29 +28,72 @@ public class GameController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        AudioProcessor processor = FindObjectOfType<AudioProcessor>();
-        processor.onBeat.AddListener(onOnbeatDetected);
+
 
     }
 
-    void onOnbeatDetected()
+    private void Update()
     {
-        // transform.Rotate(0f, 0f, 120f);
-        // Debug.Log("Beat!!!");
-        if (SceneManager.GetActiveScene().name != "Try")
+        if (!startMusic)
         {
-            SpawnCoin();
+            if (Input.anyKeyDown)
+            {
+                startMusic = true;
+                notes.started = true;
+
+                faded.Play();
+            }
         }
     }
 
-    void SpawnCoin()
+    public void Notehit()
     {
-        Transform randomSpawnPoint = spawnPoints[Random.Range(0, spawnPoints.Length)];
+        comboCount++;
 
-        GameObject Coin = Instantiate(coin, randomSpawnPoint.position, Quaternion.identity);
+        if(comboCount < 20)
+        {
+            multiplier = 1;
+        }else if(comboCount >= 20 && comboCount < 50)
+        {
+            multiplier = 2;
+        }
+        else
+        {
+            multiplier = 3;
+        }
 
-        Coin.transform.parent = ParentGameObject.transform;
-    
-        
     }
+
+    public void NormalHit()
+    {
+        Notehit();
+        currentScore += scoreNormalNote * multiplier;
+    }
+
+    public void GoodHit()
+    {
+        Notehit();
+        currentScore += scoreGoodNote * multiplier;
+    }
+
+    public void PerfectHit()
+    {
+        Notehit();
+        currentScore += scorePerfectNote * multiplier;
+    }
+
+    public void BadHit()
+    {
+        NoteMissed();
+    }
+
+    public void NoteMissed()
+    {
+        if(comboCount > maxCombo)
+        {
+            maxCombo = comboCount;
+        }
+        comboCount = 0;
+    }
+
 }

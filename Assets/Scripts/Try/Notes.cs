@@ -6,6 +6,8 @@ public class Notes : MonoBehaviour
 {
     public float beatTempo;
 
+    public bool started;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -15,6 +17,10 @@ public class Notes : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position -= new Vector3(0f, 0f, beatTempo * Time.deltaTime);
+        if (started)
+        {
+            transform.position -= new Vector3(0f, 0f, beatTempo * Time.deltaTime);
+        }
+        
     }
 }
