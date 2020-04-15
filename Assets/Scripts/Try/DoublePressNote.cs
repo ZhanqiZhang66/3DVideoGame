@@ -14,7 +14,7 @@ public class DoublePressNote : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.Space) && Input.GetKey(KeyCode.M))
+        if (Input.GetKey(KeyCode.Space) && Input.GetKey(KeyCode.Comma))
         {
             if (canBePressed)
             {
@@ -31,7 +31,7 @@ public class DoublePressNote : MonoBehaviour
     }
 
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerStay(Collider other)
     {
         if (other.tag == "Player")
         {
