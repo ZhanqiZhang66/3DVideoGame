@@ -56,8 +56,8 @@ Material:
     - _WeightNormal: 0
     m_Colors:
     - _ClipRect: {r: -32767, g: -32767, b: 32767, a: 32767}
-    - _FaceColor: {r: 0.27357662, g: 0.7830189, b: 0.24007656, a: 0.16078432}
-    - _OutlineColor: {r: 0.6862745, g: 0.6901961, b: 0.654902, a: 1}
+    - _FaceColor: {r: 0.38184872, g: 0.9716981, b: 0.2062567, a: 0.16078432}
+    - _OutlineColor: {r: 1, g: 0.9792585, b: 0.2971698, a: 1}
     - _UnderlayColor: {r: 0, g: 0, b: 0, a: 0.5}
 --- !u!114 &11400000
 MonoBehaviour:
