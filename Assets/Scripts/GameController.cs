@@ -26,12 +26,7 @@ public class GameController : MonoBehaviour
     private void Awake()
     {
         instance = this;
-    }
-    // Start is called before the first frame update
-    void Start()
-    {
-
-
+        DontDestroyOnLoad(this.gameObject);
     }
 
     private void Update()
@@ -52,7 +47,7 @@ public class GameController : MonoBehaviour
     {
         comboCount++;
         perfectScore += scoreNormalNote * multiplier;
-        percentage = currentScore / perfectScore;
+        
 
         if (comboCount < 20)
         {

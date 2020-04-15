@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -39,6 +40,14 @@ public class PlayerController : MonoBehaviour
         //transform the game object to the desired location
         transform.position = Vector3.MoveTowards(transform.position, positions[currentPos].position, speed * Time.deltaTime);
 
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.tag == "EndGame")
+        {
+            SceneManager.LoadScene("Finish");
+        }
     }
 
 
