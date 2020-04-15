@@ -19,6 +19,8 @@ public class GameController : MonoBehaviour
     public int scoreGoodNote = 120;
     public int scorePerfectNote = 150;
     public int multiplier = 1;
+    public float percentage = 0;
+    public int perfectScore = 0;
 
 
     private void Awake()
@@ -49,9 +51,10 @@ public class GameController : MonoBehaviour
     public void Notehit()
     {
         comboCount++;
+        perfectScore += scoreNormalNote * multiplier;
+        percentage = currentScore / perfectScore;
 
-
-        if(comboCount < 20)
+        if (comboCount < 20)
         {
             multiplier = 1;
         }else if(comboCount >= 20 && comboCount < 50)

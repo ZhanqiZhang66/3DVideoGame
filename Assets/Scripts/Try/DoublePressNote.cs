@@ -14,24 +14,18 @@ public class DoublePressNote : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.Space) && Input.GetKey(KeyCode.M))
+        if (Input.GetKey(KeyCode.Space) && Input.GetKey(KeyCode.Comma))
         {
             if (canBePressed)
             {
                 Destroy(gameObject);
-            }
-        }
-        else
-        {
-            if (canBePressed)
-            {
-                GameController.instance.BadHit();
+                GameController.instance.NormalHit();
             }
         }
     }
 
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerStay(Collider other)
     {
         if (other.tag == "Player")
         {

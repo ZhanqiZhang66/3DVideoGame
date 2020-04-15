@@ -23,18 +23,10 @@ public class UpAndSpaceNote : MonoBehaviour
 
             }
         }
-        else
-        {
-            if (canBePressed)
-            {
-                GameController.instance.BadHit();
-            }
-            
-        }
     }
 
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerStay(Collider other)
     {
         if (other.tag == "Player")
         {

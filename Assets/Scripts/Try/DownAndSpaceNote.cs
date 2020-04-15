@@ -19,19 +19,13 @@ public class DownAndSpaceNote : MonoBehaviour
             if (canBePressed)
             {
                 Destroy(gameObject);
-            }
-        }
-        else
-        {
-            if (canBePressed)
-            {
-                GameController.instance.BadHit();
+                GameController.instance.NormalHit();
             }
         }
     }
 
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerStay(Collider other)
     {
         if (other.tag == "Player")
         {

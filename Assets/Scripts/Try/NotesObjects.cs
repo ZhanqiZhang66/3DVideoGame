@@ -1,11 +1,11 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class NotesObjects : MonoBehaviour
 {
     public bool canBePressed;
-   
+    public GameObject perfect;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,7 +19,6 @@ public class NotesObjects : MonoBehaviour
         {
             if (canBePressed)
             {
-          
                 Destroy(gameObject);
                 GameController.instance.NormalHit();
 
@@ -46,7 +45,7 @@ public class NotesObjects : MonoBehaviour
     }
 
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerStay(Collider other)
     {
         if (other.tag == "Player")
         {
