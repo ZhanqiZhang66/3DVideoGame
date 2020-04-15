@@ -11,6 +11,8 @@ public class PlayerController : MonoBehaviour
     int currentPos = 1;
     public float speed; //9.2
     [SerializeField] ParticleSystem collectParticle = null;
+    public Camera mainCamera;
+    Vector3 velocity;
 
     // Start is called before the first frame update
     void Start()
@@ -56,18 +58,32 @@ public class PlayerController : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            Debug.Log("The player has collided with the cube");
+            //Debug.Log("The player has collided with the cube");
             collectParticle.Play();
             Color transparencyColor = new Color(0, 0, 0, 10f);
             Renderer tempRenderer;
             tempRenderer = other.GetComponent<Renderer>();
-            Debug.Log("tempRenderer.name = " + tempRenderer.name);
+            //Debug.Log("tempRenderer.name = " + tempRenderer.name);
             tempRenderer.material.color = transparencyColor;
         }
         if(other.tag == "EndGame")
         {
+            
             SceneManager.LoadScene("Finish");
         }
+
+ /*       if(other.tag == "RotateLeft")
+        {
+            float x = mainCamera.transform.rotation.x;
+            float y = mainCamera.transform.rotation.y;
+            float z = mainCamera.transform.rotation.z;
+            //float moveSmoothing = 0.3f;
+
+            Quaternion rotateValue = Quaternion.Euler(85, 50, 0);
+            mainCamera.transform.rotation = rotateValue;
+            //mainCamera.transform.Rotate(x, );= Vector3.SmoothDamp(mainCamera.transform.rotation, rotateValue, ref velocity, moveSmoothing);
+
+        }*/
     }
 
 }

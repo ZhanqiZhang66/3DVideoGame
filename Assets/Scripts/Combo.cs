@@ -22,8 +22,14 @@ public class Combo : MonoBehaviour
 	        comboC.text = "";
             //comboT.text = "";
 	    } else {
-	        comboC.text = "x" + score;
-            StartCoroutine(PopUp());
+            comboC.text = "x" + score;
+            bool updateText = true;
+            if(updateText == true)
+            {
+                StartCoroutine(PopUp());
+                updateText = false;
+            }
+            
             //comboT.text = "Combo";
         }
     }
@@ -31,13 +37,14 @@ public class Combo : MonoBehaviour
     IEnumerator PopUp()
     {
         //print("inside popup");
+        
         comboC.fontSize = 25;
         //Waits 10 frames , play with this
-        for (int framecnt = 0; framecnt < 10; framecnt++)
+        for (int framecnt = 0; framecnt < 2; framecnt++)
         {
             yield return new WaitForEndOfFrame();
         }
-        comboC.fontSize = 35;
+        comboC.fontSize = 55;
 
     }
 

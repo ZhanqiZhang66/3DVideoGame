@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class GameController : MonoBehaviour
 {
     public static GameController instance;
+    public GameObject notesHolder;
 
     public AudioSource faded;
     public bool startMusic;
@@ -22,11 +23,19 @@ public class GameController : MonoBehaviour
     public float percentage = 0;
     public int perfectScore = 0;
 
+    int numChildren;
+
 
     private void Awake()
     {
         instance = this;
         DontDestroyOnLoad(this.gameObject);
+    }
+
+    private void Start()
+    {
+        numChildren = notesHolder.GetComponentsInChildren<Transform>().Length;
+        perfectScore = 20 * 100 + 30 * 2 * 100 + (numChildren - 50) * scoreNormalNote*3;
     }
 
     private void Update()
@@ -45,9 +54,7 @@ public class GameController : MonoBehaviour
 
     public void Notehit()
     {
-        comboCount++;
-        perfectScore += scoreNormalNote * multiplier;
-        
+        comboCount++;      
 
         if (comboCount < 20)
         {
