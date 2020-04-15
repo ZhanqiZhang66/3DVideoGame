@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 3589679449852601441}
   - component: {fileID: 3589679449852601442}
   m_Layer: 8
-  m_Name: middle
+  m_Name: NormalNote
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -106,3 +106,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canBePressed: 0
+  deathParticles: {fileID: 0}

@@ -5,6 +5,7 @@ using UnityEngine;
 public class NotesObjects : MonoBehaviour
 {
     public bool canBePressed;
+   
     // Start is called before the first frame update
     void Start()
     {
@@ -18,6 +19,7 @@ public class NotesObjects : MonoBehaviour
         {
             if (canBePressed)
             {
+          
                 Destroy(gameObject);
                 GameController.instance.NormalHit();
 
