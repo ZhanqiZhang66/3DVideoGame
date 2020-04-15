@@ -23,14 +23,6 @@ public class UpAndSpaceNote : MonoBehaviour
 
             }
         }
-        else
-        {
-            if (canBePressed)
-            {
-                GameController.instance.BadHit();
-            }
-            
-        }
     }
 
 

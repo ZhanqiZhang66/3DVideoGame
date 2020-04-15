@@ -19,13 +19,7 @@ public class DoublePressNote : MonoBehaviour
             if (canBePressed)
             {
                 Destroy(gameObject);
-            }
-        }
-        else
-        {
-            if (canBePressed)
-            {
-                GameController.instance.BadHit();
+                GameController.instance.NormalHit();
             }
         }
     }
